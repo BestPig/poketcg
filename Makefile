@@ -1,4 +1,4 @@
-rom := poketcg.gbc
+rom := poketcg.pocket
 
 rom_obj := \
 src/main.o \
@@ -39,7 +39,7 @@ clean: tidy
 	find src/gfx \( -iname '*.1bpp' -o -iname '*.2bpp' -o -iname '*.pal' \) -delete
 
 tidy:
-	rm -f $(rom) $(rom_obj) $(rom:.gbc=.map) $(rom:.gbc=.sym) src/rgbdscheck.o
+	rm -f $(rom) $(rom_obj) $(rom:.pocket=.map) $(rom:.pocket=.sym) src/rgbdscheck.o
 	$(MAKE) clean -C tools/
 
 compare: $(rom)
@@ -81,10 +81,10 @@ endif
 %.asm: ;
 
 
-opts = -cjsv -k 01 -l 0x33 -m 0x1b -p 0xff -r 03 -t POKECARD -i AXQE
+opts = -cjs -f hg -k 01 -l 0x33 -m 0x1b -p 0xff -r 03 -t POKECARD -i AXQE
 
 $(rom): $(rom_obj) src/layout.link
-	$(RGBLINK) -p 0xff -m $(rom:.gbc=.map) -n $(rom:.gbc=.sym) -l src/layout.link -o $@ $(filter %.o,$^)
+	$(RGBLINK) -p 0xff -m $(rom:.pocket=.map) -n $(rom:.pocket=.sym) -l src/layout.link -o $@ $(filter %.o,$^)
 	$(RGBFIX) $(opts) $@
 
 

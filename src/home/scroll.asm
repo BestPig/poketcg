@@ -17,7 +17,7 @@ Func_3e44:
 	ld a, [hl]
 	ldh [rWX], a
 	ld hl, rLCDC
-	cp $a7
+	cp $e5
 	jr c, .disable_sprites
 	set 1, [hl] ; enable sprites
 	jr .asm_3e6c

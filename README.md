@@ -2,9 +2,9 @@
 
 This is a disassembly of Pokémon TCG.
 
-It uses the following ROM as a base:
+It build the following ROM for Analogue Pocket GB Studio mode:
 
-- Pokémon Trading Card Game (U) [C][!].gbc `sha1: 0f8670a583255cff3e5b7ca71b5d7454d928fc48`
+- Pokémon Trading Card Game (U) [C][!].pocket `sha1: e1bb3fef669a3385462a5e31a6b89a992397829d`
 
 To assemble, first download RGBDS (https://github.com/gbdev/rgbds/releases) and extract it to /usr/local/bin.
 Run `make` in your shell.

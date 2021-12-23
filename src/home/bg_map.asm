@@ -52,7 +52,7 @@ WriteDataBlockToBGMap0:
 WriteByteToBGMap0:
 	push af
 	ld a, [wLCDC]
-	rla
+	rra
 	jr c, .lcd_on
 	pop af
 	push hl
@@ -104,7 +104,7 @@ CopyDataToBGMap0:
 ; if LCD on, copy during h-blank only
 SafeCopyDataHLtoDE: ; 6fc (0:6fc)
 	ld a, [wLCDC]
-	rla
+	rra
 	jr c, JPHblankCopyDataHLtoDE
 .lcd_off_loop
 	ld a, [hli]

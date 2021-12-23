@@ -22,7 +22,7 @@ FlushPalette0:
 FlushPalettes:
 	ld [wFlushPaletteFlags], a
 	ld a, [wLCDC]
-	rla
+	rra
 	ret c
 	push hl
 	push de

@@ -107,44 +107,44 @@ rNR50       EQU $ff24 ; Channel control / ON-OFF / Volume (R/W)
 rNR51       EQU $ff25 ; Selection of Sound output terminal (R/W)
 rNR52       EQU $ff26 ; Sound on/off
 
-rLCDC       EQU $ff40 ; LCD Control (R/W)
-LCDC_OFF        EQU %01111111 ; LCD Control Operation (and)
-LCDC_ON         EQU %10000000 ; LCD Control Operation (ld/or)
-LCDC_ENABLE_F   EQU 7
-LCDC_WIN9800    EQU %10111111 ; Window Tile Map Display Select (and)
-LCDC_WIN9C00    EQU %01000000 ; Window Tile Map Display Select (ld/or)
+rLCDC       EQU $ff4e ; LCD Control (R/W)
+LCDC_OFF        EQU %11111110 ; LCD Control Operation (and)
+LCDC_ON         EQU %00000001 ; LCD Control Operation (ld/or)
+LCDC_ENABLE_F   EQU 0
+LCDC_WIN9800    EQU %11111101 ; Window Tile Map Display Select (and)
+LCDC_WIN9C00    EQU %00000010 ; Window Tile Map Display Select (ld/or)
 LCDC_WINSELECT  EQU LCDC_WIN9C00
-LCDC_WINOFF     EQU %11011111 ; Window Display (and)
-LCDC_WINON      EQU %00100000 ; Window Display (ld/or)
+LCDC_WINOFF     EQU %11111011 ; Window Display (and)
+LCDC_WINON      EQU %00000100 ; Window Display (ld/or)
 LCDC_WINENABLE  EQU LCDC_WINON
-LCDC_BG8800     EQU %11101111 ; BG & Window Tile Data Select (and)
-LCDC_BG8000     EQU %00010000 ; BG & Window Tile Data Select (ld/or)
+LCDC_BG8800     EQU %11110111 ; BG & Window Tile Data Select (and)
+LCDC_BG8000     EQU %00001000 ; BG & Window Tile Data Select (ld/or)
 LCDC_BGTILEDATA EQU LCDC_BG8000
-LCDC_BG9800     EQU %11110111 ; BG Tile Map Display Select (and)
-LCDC_BG9C00     EQU %00001000 ; BG Tile Map Display Select (ld/or)
+LCDC_BG9800     EQU %11101111 ; BG Tile Map Display Select (and)
+LCDC_BG9C00     EQU %00010000 ; BG Tile Map Display Select (ld/or)
 LCDC_BGTILEMAP  EQU LCDC_BG9C00
-LCDC_OBJ8       EQU %11111011 ; OBJ Construction (and)
-LCDC_OBJ16      EQU %00000100 ; OBJ Construction (ld/or)
+LCDC_OBJ8       EQU %11011111 ; OBJ Construction (and)
+LCDC_OBJ16      EQU %00100000 ; OBJ Construction (ld/or)
 LCDC_OBJSIZE    EQU LCDC_OBJ16
-LCDC_OBJOFF     EQU %11111101 ; OBJ Display (and)
-LCDC_OBJON      EQU %00000010 ; OBJ Display (ld/or)
+LCDC_OBJOFF     EQU %10111111 ; OBJ Display (and)
+LCDC_OBJON      EQU %01000000 ; OBJ Display (ld/or)
 LCDC_OBJENABLE  EQU LCDC_OBJON
-LCDC_BGOFF      EQU %11111110 ; BG Display (and)
-LCDC_BGON       EQU %00000001 ; BG Display (ld/or)
+LCDC_BGOFF      EQU %01111111 ; BG Display (and)
+LCDC_BGON       EQU %10000000 ; BG Display (ld/or)
 LCDC_BGENABLE   EQU LCDC_BGON
 
 rSTAT       EQU $ff41 ; LCDC Status (R/W)
-STAT_LYC          EQU 6 ; LYC=LY Coincidence
-STAT_MODE_OAM     EQU 5 ; Mode 10 (OAM)
-STAT_MODE_VBLANK  EQU 4 ; Mode 01 (V-Blank)
-STAT_MODE_HBLANK  EQU 3 ; Mode 00 (H-Blank)
-STAT_LYCFLAG      EQU 2 ; 0:LYC<>LY, 1:LYC=LY
-STAT_LCDC_STATUS  EQU %00000011
+STAT_LYC          EQU 1 ; LYC=LY Coincidence
+STAT_MODE_OAM     EQU 2 ; Mode 10 (OAM)
+STAT_MODE_VBLANK  EQU 3 ; Mode 01 (V-Blank)
+STAT_MODE_HBLANK  EQU 4 ; Mode 00 (H-Blank)
+STAT_LYCFLAG      EQU 5 ; 0:LYC<>LY, 1:LYC=LY
+STAT_LCDC_STATUS  EQU %11000000
 STAT_ON_HBLANK    EQU %00000000 ; H-Blank
-STAT_ON_VBLANK    EQU %00000001 ; V-Blank
-STAT_ON_OAM       EQU %00000010 ; OAM-RAM is used by system
-STAT_ON_LCD       EQU %00000011 ; Both OAM and VRAM used by system
-STAT_BUSY         EQU 1 ; When set, VRAM and OAM access is unsafe
+STAT_ON_VBLANK    EQU %10000000 ; V-Blank
+STAT_ON_OAM       EQU %01000000 ; OAM-RAM is used by system
+STAT_ON_LCD       EQU %11000000 ; Both OAM and VRAM used by system
+STAT_BUSY         EQU 6 ; When set, VRAM and OAM access is unsafe
 
 rSCY        EQU $ff42 ; Scroll Y (R/W)
 rSCX        EQU $ff43 ; Scroll X (R/W)

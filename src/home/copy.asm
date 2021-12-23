@@ -2,7 +2,7 @@
 ; used to copy gfx data with c = TILE_SIZE
 CopyGfxData:
 	ld a, [wLCDC]
-	rla
+	rra
 	jr nc, .next_tile
 .hblank_copy
 	push bc
